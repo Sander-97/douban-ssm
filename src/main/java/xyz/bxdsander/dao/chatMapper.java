@@ -12,13 +12,13 @@ import java.util.List;
  * @Date 2021/9/16 8:59
  * @Version 1.0
  **/
-public interface chatDao {
+public interface chatMapper {
     /**
      * 获取记录的总数
      * @param userId 用户id
      * @return 记录总数
      */
-    public int getTotalCount(int userId);
+    int getTotalCount(int userId);
 
     /***
      * 通过用户定义的页面数和页面大小进行分页查询
@@ -27,7 +27,7 @@ public interface chatDao {
      * @param userId 用户id
      * @return 只含有chat 表的数据集合
      */
-    public List<chat> queryChatByPage(int currentPage, int pageSize, int userId);
+    List<chat> queryChatByPage(int currentPage, int pageSize, int userId);
 
     /**
      * 找到符合发送者和接收者id的记录
@@ -35,7 +35,7 @@ public interface chatDao {
      * @param toUserId 接收人id
      * @return 符合条件的记录总数
      */
-    public int getShowTotalCount(int userId, int toUserId);
+    int getShowTotalCount(int userId, int toUserId);
 
     /**
      * 通过用户定义的页面数和页面大小，进行分页查询--找到符合发送者和接受者的记录
@@ -45,13 +45,13 @@ public interface chatDao {
      * @param toUserId  接收人用户id
      * @return 返回符合条件的chat数据集合
      */
-    public List<chat> queryShowByPage(int currentPage, int pageSize, int userId, int toUserId);
+    List<chat> queryShowByPage(int currentPage, int pageSize, int userId, int toUserId);
 
     /**
      *  新建一个聊天
      * @param chat chat对象
      * @return 操作成功与否
      */
-    public boolean chatInsert(chat chat);
+    boolean chatInsert(chat chat);
 
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.bxdsander.dao.ArticleMapper">
+
+    <resultMap id="ArticleResultMap" type="Article">
+        <id property="articleId" column="article_id"></id>
+        <result property="title" column="title"></result>
+        <result property="authorId" column="author"></result>
+        <result property="publishedTime" column="published_time"></result>
+        <result property="content" column="content"></result>
+        <result property="collectionNum" column="collection"></result>
+        <result property="shareNum" column="share"></result>
+        <result property="commentNum" column="comment"></result>
+        <result property="starNum" column="star"></result>
+        <result property="stick" column="stick"></result>
+        <result property="pageView" column="page_view"></result>
+    </resultMap>
+
+<!--    在article中新增一条记录-->
+    <insert id="articleInsert" parameterType="Article">
+        INSERT INTO a_article(title,author,content)
+        VALUES (#{title},#{author},#{content})
+    </insert>
+
+<!--   根据文章标题查找文章-->
+    <select id="articleQuery" parameterType="Article" resultMap="ArticleResultMap">
+        SELECT * FROM a_article
+        WHERE title = #{title}
+    </select>
+
+<!--    更新一篇文章的信息-->
+    <update id="articleUpdate" parameterType="Article">
+        UPDATE a_article
+        SET title = #{title},content = #{content}
+        WHERE article_id = #{articleId}
+    </update>
+    
+<!--    查询文章的标签名是否存在-->
+    <select id="tagIsExist" parameterType="String">
+        SELECT * FROM a_tag
+        WHERE  tag_name = #{tagName}
+    </select>
+
+<!--    插入一个标签-->
+    <insert id="tagInsert" parameterType="String">
+        INSERT INTO a_tag (tag_name)
+        VALUES (#{tagName})
+    </insert>
+</mapper>

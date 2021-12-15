@@ -9,7 +9,7 @@ import java.util.List;
  * @Date 2021/9/16 9:00
  * @Version 1.0
  **/
-public interface friendOperationDao {
+public interface friendOperationMapper {
     /**
      * 更新当前用户的好友关系，把好友关系更改为当前用户选择的好友关系
      * @param fromUserId friend表中记录的发出者

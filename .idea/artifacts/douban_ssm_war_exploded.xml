@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="douban-ssm:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/douban_ssm_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="douban-ssm" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="douban-ssm/web/Web" />
+    </root>
+  </artifact>
+</component>

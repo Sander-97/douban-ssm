@@ -1,5 +1,7 @@
 package xyz.bxdsander.bean;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @ClassName Msg
  * @Direction: 用来操作信息的转接 ，返回值默认是该类的实例对象，结果是字符串
@@ -7,6 +9,7 @@ package xyz.bxdsander.bean;
  * @Date 2021/9/16 9:08
  * @Version 1.0
  **/
+@Alias("msg")
 public class Msg {
 
     /**

@@ -1,5 +1,7 @@
 package xyz.bxdsander.bean;
 
+import org.apache.ibatis.type.Alias;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
@@ -10,6 +12,7 @@ import java.text.SimpleDateFormat;
  * @Date 2021/9/15 15:00
  * @Version 1.0
  **/
+@Alias("articleComment")
 public class ArticleComment {
 
     /**

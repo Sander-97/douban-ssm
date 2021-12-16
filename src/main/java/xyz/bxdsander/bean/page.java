@@ -1,5 +1,7 @@
 package xyz.bxdsander.bean;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import java.util.List;
  * @Date 2021/9/15 19:23
  * @Version 1.0
  **/
+@Alias("page")
 public class page {
 
     /**

@@ -1,5 +1,7 @@
 package xyz.bxdsander.bean;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @ClassName friend
  * @Direction: 好友关系表的对应类
@@ -7,6 +9,7 @@ package xyz.bxdsander.bean;
  * @Date 2021/9/15 20:14
  * @Version 1.0
  **/
+@Alias("friend")
 public class friend {
     /**
      * @Description 好友关系分组的id

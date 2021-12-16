@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xyz.bxdsander.dao.ArticleMapper">
 
-    <resultMap id="ArticleResultMap" type="Article">
+<!--自定义返回结果集-->
+    <resultMap id="ArticleMap" type="Article">
         <id property="articleId" column="article_id"></id>
         <result property="title" column="title"></result>
         <result property="authorId" column="author"></result>
@@ -17,33 +18,51 @@
     </resultMap>
 
 <!--    在article中新增一条记录-->
-    <insert id="articleInsert" parameterType="Article">
+    <insert id="articleInsert" parameterType="article">
         INSERT INTO a_article(title,author,content)
         VALUES (#{title},#{author},#{content})
     </insert>
 
 <!--   根据文章标题查找文章-->
-    <select id="articleQuery" parameterType="Article" resultMap="ArticleResultMap">
+    <select id="articleQuery" parameterType="article" resultMap="ArticleMap">
         SELECT * FROM a_article
         WHERE title = #{title}
     </select>
 
 <!--    更新一篇文章的信息-->
-    <update id="articleUpdate" parameterType="Article">
+    <update id="articleUpdate" parameterType="article">
         UPDATE a_article
         SET title = #{title},content = #{content}
         WHERE article_id = #{articleId}
     </update>
     
 <!--    查询文章的标签名是否存在-->
-    <select id="tagIsExist" parameterType="String">
+    <select id="tagIsExist" parameterType="java.lang.String">
         SELECT * FROM a_tag
         WHERE  tag_name = #{tagName}
     </select>
 
 <!--    插入一个标签-->
-    <insert id="tagInsert" parameterType="String">
+    <insert id="tagInsert" parameterType="java.lang.String">
         INSERT INTO a_tag (tag_name)
         VALUES (#{tagName})
     </insert>
+
+<!--    插入一条记录到文章-标签映射记录表中-->
+    <insert id="middleInsert" parameterType="java.lang.Integer">
+        INSERT INTO article_to_tag (article_id,tag_id)
+        VALUES (#{articleId},#{tagId})
+    </insert>
+
+<!--    在文章-标签映射记录表中删除一条记录-->
+    <delete id="middleDelete">
+        DELETE FROM article_to_tag
+        WHERE article_id = #{articleId}
+    </delete>
+
+<!--    删除一篇文章-->
+    <delete id="articleDelete">
+        DELETE FROM a_article
+        WHERE article_id = #{articleId}
+    </delete>
 </mapper>

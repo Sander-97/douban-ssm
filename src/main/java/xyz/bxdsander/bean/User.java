@@ -1,6 +1,8 @@
 package xyz.bxdsander.bean;
 
 
+import org.apache.ibatis.type.Alias;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
@@ -11,6 +13,7 @@ import java.text.SimpleDateFormat;
  * @Date 2021/9/15 14:11
  * @Version 1.0
  **/
+@Alias("user")
 public class User {
    /**
     * @Description  用户ID

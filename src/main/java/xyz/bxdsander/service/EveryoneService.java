@@ -18,7 +18,7 @@ public interface EveryoneService {
      *  查询数据的总数
      * @return 返回查询到的数据
      */
-    public int getTotalCount();
+    int getTotalCount();
 
     /**
      * 分页查询所有用户信息
@@ -26,14 +26,14 @@ public interface EveryoneService {
      * @param pageSize  页面大小
      * @return 用户集合
      */
-    public List<User> queryEveryoneByPage(int currentPage , int pageSize);
+    List<User> queryEveryoneByPage(int currentPage , int pageSize);
 
     /**
      * 查询符合条件数据的总条数
      * @param searchContent 模糊搜索的内容
      * @return 返回搜索到的数据条数
      */
-    public int getSearchCount(String searchContent);
+    int getSearchCount(String searchContent);
     /**
      * 通过模糊搜索的内容进行页面查询
      * @param currentPage 当前页
@@ -41,7 +41,7 @@ public interface EveryoneService {
      * @param searchContent 搜索内容
      * @return 返回查询到的用户集合
      */
-    public List<User> queryEveryoneByPageAndSearchContent(int currentPage , int pageSize ,String searchContent);
+    List<User> queryEveryoneByPageAndSearchContent(int currentPage , int pageSize ,String searchContent);
 
     /**
      * 根据本人的用户id和好友关系状态获取好友的总数
@@ -49,7 +49,7 @@ public interface EveryoneService {
      * @param status 好友关系状态 1--关注 2---好友
      * @return 返回查询到的数据总数
      */
-    public int getFriendTotalCount(int userId , int status);
+    int getFriendTotalCount(int userId , int status);
     /**
      * 通过用户本人id和好友关系状态进行分页查询
      * @param userId 用户id
@@ -58,7 +58,7 @@ public interface EveryoneService {
      * @param pageSize 页面大小
      * @return 查询到的用户集合
      */
-    public List<User> queryFriendByPage(int userId , int status ,int currentPage ,int pageSize);
+    List<User> queryFriendByPage(int userId , int status ,int currentPage ,int pageSize);
 
     /**
      *  通过用户本人id和好友关系状态以及搜索的内容进行分页查询
@@ -69,7 +69,7 @@ public interface EveryoneService {
      * @param pageSize 页面大小
      * @return 返回用户集合
      */
-    public List<User> queryFriendByPageAndSearchContent( String searchContent , int userId , int status , int currentPage , int pageSize);
+    List<User> queryFriendByPageAndSearchContent( String searchContent , int userId , int status , int currentPage , int pageSize);
 
     /**
      *  查询关于搜索内容的好友数据总数
@@ -78,7 +78,7 @@ public interface EveryoneService {
      * @param searchContent 搜索的内容
      * @return 返回搜索的数据大小
      */
-    public int getFriendTotalCount(int userId , int status , String searchContent);
+    int getFriendTotalCount(int userId , int status , String searchContent);
 
     /**
      *  查询所有用户的相关信息
@@ -89,6 +89,6 @@ public interface EveryoneService {
      * @param pageSize  页面大小
      * @return 返回查询到的用户 集合
      */
-    public List<User> queryFriendGroupByPage(String searchContent , int userId , int status , int currentPage , int pageSize);
+    List<User> queryFriendGroupByPage(String searchContent , int userId , int status , int currentPage , int pageSize);
 
 }

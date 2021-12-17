@@ -16,7 +16,7 @@ public interface ArticleInteractionService {
      * @param userId 用户id
      * @return 存在返回1，不存在返回0
      */
-    public int starIsExist(int type,int typeId,int userId);
+    int starIsExist(int type,int typeId,int userId);
 
     /**
      * 新增一条点赞记录
@@ -25,7 +25,7 @@ public interface ArticleInteractionService {
      * @param userId 用户id
      * @return 返回操作成功与否
      */
-    public boolean starInsert(int type,int typeId,int userId);
+    boolean starInsert(int type,int typeId,int userId);
 
     /**
      *  删除一条点赞记录
@@ -34,7 +34,7 @@ public interface ArticleInteractionService {
      * @param userId
      * @return
      */
-    public boolean starDelete(int typeId,int type,int userId);
+    boolean starDelete(int typeId,int type,int userId);
 
     /**
      * 查询是否存在该收藏记录
@@ -42,7 +42,7 @@ public interface ArticleInteractionService {
      * @param userId 用户id
      * @return 返回是否存在
      */
-    public boolean collectionIsExist(int articleId,int userId);
+    boolean collectionIsExist(int articleId,int userId);
 
     /**
      *  新增一条收藏记录
@@ -50,7 +50,7 @@ public interface ArticleInteractionService {
      * @param userId 用户id
      * @return 返回操作成功与否
      */
-    public boolean collectionInsert(int articleId,int userId);
+    boolean collectionInsert(int articleId,int userId);
 
     /**
      * 删除一条收藏记录
@@ -58,23 +58,23 @@ public interface ArticleInteractionService {
      * @param userId 用户id
      * @return 返回操作是否成功
      */
-    public boolean collectionDelete(int articleId,int userId);
+    boolean collectionDelete(int articleId,int userId);
     /**
      *  查询分享是否存在
      * @param articleId 文章id
      * @param userId 用户id
      * @return 返回是否存在的布尔值
      */
-    public boolean shareIsExist(int articleId, int userId);
+    boolean shareIsExist(int articleId, int userId);
 
-    public boolean shareInsert(int articleId, int userId);
+    boolean shareInsert(int articleId, int userId);
     /**
      * 删除一条转发记录
      * @param articleId 文章id
      * @param userId 用户id
      * @return 操作是否成功
      */
-    public boolean shareDelete(int articleId,int userId);
+    boolean shareDelete(int articleId,int userId);
 
 
 }

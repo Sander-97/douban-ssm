@@ -21,7 +21,7 @@ public interface ArticleListService {
      *  查询数据的总条数
      * @return 总条数
      */
-    public int getTotalCount();
+    int getTotalCount();
 
     /**
      * 分页查询所有文章
@@ -29,14 +29,14 @@ public interface ArticleListService {
      * @param pageSize 页面大小
      * @return 返回所有文章的数据集合
      */
-    public List<ArticleList> queryArticleListByPage(int currentPage, int pageSize);
+    List<ArticleList> queryArticleListByPage(int currentPage, int pageSize);
 
     /**
      *  获取我的文章列表的数据总条数
      * @param userId 用户id
      * @return 返回数据的总数
      */
-    public int getMyTotalCount(int userId);
+    int getMyTotalCount(int userId);
     /**
      *  分页查询我的所有文章
      * @param currentPage 当前页
@@ -44,14 +44,14 @@ public interface ArticleListService {
      * @param userId  用户id
      * @return 返回我所有文章的数据集合
      */
-    public List<ArticleList> queryMyArticleListByPage(int currentPage ,int pageSize, int userId);
+    List<ArticleList> queryMyArticleListByPage(int currentPage ,int pageSize, int userId);
 
     /**
      * 查询符合搜索条件的数据总数
      * @param searchContent 搜索内容
      * @return 返回数据总数
      */
-    public int getArticleSearchContent(String searchContent);
+    int getArticleSearchContent(String searchContent);
     /**
      * 根据搜索内容进行分页查询
      * @param currentPage 当前页
@@ -59,14 +59,14 @@ public interface ArticleListService {
      * @param searchContent 搜索内容
      * @return 返回数据集合
      */
-    public List<ArticleList> queryArticleSearchContentByPage(int currentPage , int PageSize ,String searchContent);
+    List<ArticleList> queryArticleSearchContentByPage(int currentPage , int PageSize ,String searchContent);
     /**
      * 查询我的符合搜索内容的记录总数
      * @param authorId 作者id
      * @param searchContent 搜索内容
      * @return 返回数据总数
      */
-    public int getMyArticleSearchCount(int authorId , String searchContent);
+    int getMyArticleSearchCount(int authorId , String searchContent);
 
     /**
      *  分页查询，根据搜索内容和我的id查询符合条件的记录
@@ -76,14 +76,14 @@ public interface ArticleListService {
      * @param authorId 作者id
      * @return 返回数据记录集合
      */
-    public List<ArticleList> queryMyArticleSearchContentByPage(int currentPage , int PageSize ,String searchContent,int authorId);
+    List<ArticleList> queryMyArticleSearchContentByPage(int currentPage , int PageSize ,String searchContent,int authorId);
 
     /**
      * 获取我的收藏总数
      * @param userId 用户id
      * @return 返回数据总数
      */
-    public int getMyCollectionTotalCount(int userId);
+    int getMyCollectionTotalCount(int userId);
 
     /**
      *  分页查询我的收藏总数
@@ -92,5 +92,5 @@ public interface ArticleListService {
      * @param authorId 作者id
      * @return 返回数据集合
      */
-    public List<ArticleList> queryMyCollectionByPage(int currentPage , int PageSize ,int authorId);
+    List<ArticleList> queryMyCollectionByPage(int currentPage , int PageSize ,int authorId);
 }

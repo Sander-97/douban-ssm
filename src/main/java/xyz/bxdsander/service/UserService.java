@@ -19,7 +19,7 @@ public interface UserService {
      * @param password
      * @return
      */
-    public Msg login(String userName, String password);
+    Msg login(String userName, String password);
 
     /**
      *  用户注册
@@ -27,40 +27,40 @@ public interface UserService {
      * @param password
      * @return
      */
-    public Msg register(String userName, String password);
+    Msg register(String userName, String password);
 
     /**
      * 更新当前用户的个人信息
      * @param user
      * @return 返回true成功，false失败
      */
-    public boolean personage(User user);
+    boolean personage(User user);
 
     /**
      *  更新当前用户的头像信息
      * @param user
      * @return true成功，false失败
      */
-    public boolean portrait(User user);
+    boolean portrait(User user);
 
     /**
      *  查询用户的信息
      * @param userName 用户名
      * @return 成功返回用户user对象，失败返回null
      */
-    public User UserInfo(String userName);
+    User UserInfo(String userName);
 
     /**
      *  通过用户id得到用户的所有信息
      * @param userId
      * @return 成功返回user对象，失败返回null
      */
-    public User userInfoByUserId(int userId);
+    User userInfoByUserId(int userId);
 
     /**
      * 通过用户名进行逻辑判断和记录增加
      * @param userName
      * @return 成功与否
      */
-    public boolean findBackUser(String userName);
+    boolean findBackUser(String userName);
 }

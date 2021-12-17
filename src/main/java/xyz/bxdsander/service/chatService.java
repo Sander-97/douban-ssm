@@ -18,7 +18,7 @@ public interface chatService {
      * @param userId 用户id
      * @return 数据总数
      */
-    public int getTotalCount(int userId);
+    int getTotalCount(int userId);
     /**
      *  分页查询符合条件的聊天记录
      * @param currentPage 当前页
@@ -26,7 +26,7 @@ public interface chatService {
      * @param userId 用户id
      * @return 聊天的chat对象的数据集合
      */
-    public List<chat> queryChatByPage(int currentPage , int pageSize , int userId);
+    List<chat> queryChatByPage(int currentPage , int pageSize , int userId);
 
     /**
      *  查询符合条件的数据记录总数
@@ -34,7 +34,7 @@ public interface chatService {
      * @param toUserId 被当前用户选择的id
      * @return 返回数据总数
      */
-    public int getShowCount(int userId ,int toUserId);
+    int getShowCount(int userId ,int toUserId);
 
 
     /**
@@ -45,12 +45,12 @@ public interface chatService {
      * @param toUserId 被选中的用户id
      * @return 返回数据集合
      */
-    public List<chat> queryShowByPage(int currentPage , int PageSize ,int userId , int toUserId);
+    List<chat> queryShowByPage(int currentPage , int PageSize ,int userId , int toUserId);
 
     /**
      * 进行聊天的增加
      * @param chat 聊天
      * @return 操作成功与否
      */
-    public boolean chatInsert(chat chat);
+    boolean chatInsert(chat chat);
 }

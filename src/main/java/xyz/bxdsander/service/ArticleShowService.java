@@ -22,21 +22,21 @@ public interface ArticleShowService {
      * @param articleId 作者id
      * @return  返回文章Article对象
      */
-    public Article getArticleInfo(int articleId);
+    Article getArticleInfo(int articleId);
 
     /**
      *  增加一条评论
      * @param articleComment 文章评论
      * @return 返回操作是否成功
      */
-    public boolean commentInsert(ArticleComment articleComment);
+    boolean commentInsert(ArticleComment articleComment);
 
     /**
      *  查询评论数据的总条数
      * @param articleId 文章id
      * @return 返回查询到的数据总数
      */
-    public int getCommentTotalCount(int articleId);
+    int getCommentTotalCount(int articleId);
 
     /**
      * 分页查询评论
@@ -45,21 +45,21 @@ public interface ArticleShowService {
      * @param userId 用户id
      * @return 返回数据集合
      */
-    public List<ArticleComment> queryCommentByPage(int currentPage , int pageSize , int userId);
+    List<ArticleComment> queryCommentByPage(int currentPage , int pageSize , int userId);
 
     /**
      * 增加一条回复
      * @param articleReply 文章回复
      * @return 返回操作成功与否
      */
-    public boolean replyInsert(ArticleReply articleReply);
+    boolean replyInsert(ArticleReply articleReply);
 
     /**
      * 对于回复的回复的增加
      * @param articleReply  文章的回复
      * @return 操作成功与否
      */
-    public boolean reply_replyInsert(ArticleReply articleReply);
+    boolean reply_replyInsert(ArticleReply articleReply);
 
     /**
      * 组装返回回复对象的数据集合
@@ -68,5 +68,5 @@ public interface ArticleShowService {
      * @param articleId 文章id
      * @return articleReply--数据集合
      */
-    public List<ArticleReply> queryReplyByComment(int currentPage , int pageSize ,int articleId);
+    List<ArticleReply> queryReplyByComment(int currentPage , int pageSize ,int articleId);
 }

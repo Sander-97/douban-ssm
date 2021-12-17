@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.bxdsander.bean">
+
+    <resultMap id="friendMap" type="friend">
+        <id property="friendId" column="friend_id"/>
+        <result property="fromUserId" column="from_user_id"/>
+        <result property="toUserId" column="to_user_id"/>
+        <result property="status" column="status"/>
+        <result property="groupId" column="group_id"/>
+    </resultMap>
+
+<!--    获取总的user数量-->
+    <select id="getTotalCount" resultMap="friendMap">
+        SELECT * FROM user
+    </select>
+
+
+
+</mapper>

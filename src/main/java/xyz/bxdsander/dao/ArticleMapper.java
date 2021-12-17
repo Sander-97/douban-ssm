@@ -1,7 +1,9 @@
 package xyz.bxdsander.dao;
 
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import xyz.bxdsander.bean.Article;
 
 /**
@@ -11,6 +13,8 @@ import xyz.bxdsander.bean.Article;
  * @Date 2021/9/16 9:03
  * @Version 1.0
  **/
+@Mapper
+@Repository
 public interface ArticleMapper {
     /**
      *  新增一篇文章到数据库---新增一篇文章

@@ -18,7 +18,7 @@ import java.util.Random;
 public class ImageUrl {
 
     private static String guide = "http://127.0.0.1/DouBanProject/image/";
-    private static Map<String,String> map = new HashMap<>();
+    private static Map<String,String> map = new HashMap<String,String>();
 
     /**
      * 把原文件的名字改为  “时间戳+随机数” + “.” + “后缀名”

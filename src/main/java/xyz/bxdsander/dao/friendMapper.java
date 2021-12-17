@@ -1,5 +1,7 @@
 package xyz.bxdsander.dao;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import xyz.bxdsander.bean.User;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.List;
  * @Date 2021/9/16 9:00
  * @Version 1.0
  **/
+@Mapper
+@Repository
 public interface friendMapper {
     /**
      * 查询列表的记录总数

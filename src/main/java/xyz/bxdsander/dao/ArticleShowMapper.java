@@ -1,6 +1,8 @@
 package xyz.bxdsander.dao;
 
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import xyz.bxdsander.bean.Article;
 import xyz.bxdsander.bean.ArticleComment;
 import xyz.bxdsander.bean.ArticleReply;
@@ -14,6 +16,8 @@ import java.util.List;
  * @Date 2021/9/16 9:02
  * @Version 1.0
  **/
+@Mapper
+@Repository
 public interface ArticleShowMapper {
     /**
      *  通过articleId查询Article

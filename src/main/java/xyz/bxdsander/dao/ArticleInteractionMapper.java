@@ -1,5 +1,8 @@
 package xyz.bxdsander.dao;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 /**
  * @InterfaceName ArticleInteractionDao
  * @Direction: 文章的用户互动--点赞，收藏，转发 评论数，回复数
@@ -7,6 +10,8 @@ package xyz.bxdsander.dao;
  * @Date 2021/9/16 9:04
  * @Version 1.0
  **/
+@Mapper
+@Repository
 public interface ArticleInteractionMapper {
     /** 查询评论的数量，在a_comment表中对符合articleId的记录数量进行查询
      * @param articleId 文章id

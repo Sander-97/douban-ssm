@@ -1,6 +1,8 @@
 package xyz.bxdsander.dao;
 
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import xyz.bxdsander.bean.Msg;
 import xyz.bxdsander.bean.User;
 
@@ -11,6 +13,8 @@ import xyz.bxdsander.bean.User;
  * @Date 2021/9/16 8:55
  * @Version 1.0
  **/
+@Mapper
+@Repository
 public interface UserMapper {
 
     /**

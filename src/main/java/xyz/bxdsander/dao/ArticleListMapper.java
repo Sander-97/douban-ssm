@@ -1,6 +1,8 @@
 package xyz.bxdsander.dao;
 
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import xyz.bxdsander.bean.ArticleList;
 
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.List;
  * @Date 2021/9/16 9:02
  * @Version 1.0
  **/
+@Mapper
+@Repository
 public interface ArticleListMapper {
     /**
      *  查询列表的文章记录总数

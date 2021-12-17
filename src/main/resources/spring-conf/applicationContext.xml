@@ -53,17 +53,17 @@
 <!--        指定mybatis核心配置文件位置-->
         <property name="configLocation" value="classpath:/mybatis-conf/mybatis-config.xml"/>
 <!--        引入插件-->
-        <property name="plugins">
-            <array>
-<!--                引入mybatis分页插件-->
-                <bean class="com.github.pagehelper.PageInterceptor">
-                    <property name="properties">
-<!--                        指定数据类型-->
-                        <value>helperDialect=mysql</value>
-                    </property>
-                </bean>
-            </array>
-        </property>
+<!--        <property name="plugins">-->
+<!--            <array>-->
+<!--&lt;!&ndash;                引入mybatis分页插件&ndash;&gt;-->
+<!--                <bean class="com.github.pagehelper.PageInterceptor">-->
+<!--                    <property name="properties">-->
+<!--&lt;!&ndash;                        指定数据类型&ndash;&gt;-->
+<!--                        <value>helperDialect=mysql</value>-->
+<!--                    </property>-->
+<!--                </bean>-->
+<!--            </array>-->
+<!--        </property>-->
     </bean>
 
 <!--    开启mapper接口扫描-->

@@ -10,9 +10,55 @@
         <result property="groupId" column="group_id"/>
     </resultMap>
 
+    <resultMap id="userMap" type="User">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="username"/>
+        <result property="passWord" column="password"/>
+        <result property="status" column="status"/>
+        <result property="reported" column="reported"/>
+        <result property="titleTime" column="title_time"/>
+        <result property="portrait" column="portrait"/>
+        <result property="signature" column="signature"/>
+        <result property="selfIntroduction" column="self_introduction"/>
+        <result property="nickName" column="nickname"/>
+        <result property="address" column="address"/>
+        <result property="time" column="time"/>
+        <result property="code" column="code"/>
+        <result property="outTime" column="out_time"/>
+    </resultMap>
+
 <!--    获取总的user数量-->
     <select id="getTotalCount" resultMap="java.lang.Integer">
         SELECT COUNT(1) FROM user
+    </select>
+
+<!--    按照limit和offset查询所有的user-->
+    <select id="queryEveryoneByPage" resultMap="userMap">
+        <!--    当传入多参数时，采用注解法传参数-->
+        SELECT * FROM user LIMIT = #{limit}, OFFSET = #{offset}
+    </select>
+
+<!--    在user表中对user昵称nickname字段进行模糊搜索-->
+    <select id="getSearchCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM user WHERE nickname LIKE "%"#{searchContent}"%"
+    </select>
+
+    <select id="queryEveryoneByPage" resultMap="userMap">
+        SELECT * FROM (SELECT * FROM user WHERE nickname LIKE "%"#{searchContent}"%") LIMIT = #{limit},OFFSET = #{OFFSET}
+    </select>
+
+<!--    查看我的关注、好友、黑名单的记录总数-->
+    <select id="getFriendTotalCount" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM friend WHERE from_user_id = #{userId}, status = #{status}
+    </select>
+
+<!--    对于我的关注、好友、黑名单进行分页查询-->
+    <select id="queryFriendByPage" resultMap="userMap">
+        SELECT * FROM friend WHERE from_user_id = #{userId} AND status = #{status} AND LIMIT = #{limit} , OFFSET = #{offset}
+    </select>
+
+    <select id="queryFriendByPageAndSearchContent" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM friend INNER JOIN user ON friend.from_user_id = #{userId} AND friend.status = #{status} AND user.nickname LIKE "%"#{nickName}"%" AND friend.to_user_id = user.user_id
     </select>
 
 

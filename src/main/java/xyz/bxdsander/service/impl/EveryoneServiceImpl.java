@@ -1,6 +1,7 @@
 package xyz.bxdsander.service.impl;
 
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import xyz.bxdsander.bean.User;
 import xyz.bxdsander.dao.friendMapper;
@@ -33,7 +34,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param pageSize  页面大小
      * @return 用户集合
      */
-    public List<User> queryEveryoneByPage(int currentPage , int pageSize){
+    public List<User> queryEveryoneByPage(@Param("offset") int currentPage , @Param("limit") int pageSize){
         return friendMapper.queryEveryoneByPage(currentPage, pageSize);
     }
 
@@ -42,7 +43,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param searchContent 模糊搜索的内容
      * @return 返回搜索到的数据条数
      */
-    public int getSearchCount(String searchContent){
+    public int getSearchCount(@Param("searchContent")String searchContent){
         return friendMapper.getSearchCount(searchContent);
 
     }
@@ -54,7 +55,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param searchContent 搜索内容
      * @return 返回查询到的用户集合
      */
-    public List<User> queryEveryoneByPageAndSearchContent(int currentPage , int pageSize ,String searchContent){
+    public List<User> queryEveryoneByPageAndSearchContent(@Param("offset") int currentPage , @Param("limit") int pageSize ,@Param("searchContent") String searchContent){
         return friendMapper.queryEveryoneByPage(currentPage, pageSize, searchContent);
     }
 
@@ -64,7 +65,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param status 好友关系状态 1--关注 2---好友
      * @return 返回查询到的数据总数
      */
-    public int getFriendTotalCount(int userId , int status){
+    public int getFriendTotalCount(@Param("userId") int userId , @Param("status")int status){
         return friendMapper.getFriendTotalCount(userId, status);
     }
 
@@ -76,7 +77,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param pageSize 页面大小
      * @return 查询到的用户集合
      */
-    public List<User> queryFriendByPage(int userId , int status ,int currentPage ,int pageSize){
+    public List<User> queryFriendByPage(@Param("userId")int userId , @Param("status")int status ,@Param("offset")int currentPage ,@Param("limit")int pageSize){
         return friendMapper.queryFriendByPage(userId, status, currentPage, pageSize);
     }
 
@@ -89,7 +90,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param pageSize 页面大小
      * @return 返回用户集合
      */
-    public List<User> queryFriendByPageAndSearchContent( String searchContent , int userId , int status , int currentPage , int pageSize){
+    public List<User> queryFriendByPageAndSearchContent(@Param("searchContent")String searchContent ,@Param("userId")int userId ,@Param("status")int status ,@Param("offset")int currentPage ,@Param("limit")int pageSize){
         return friendMapper.queryFriendByPage(searchContent, userId, status, currentPage, pageSize);
     }
 
@@ -100,7 +101,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param searchContent 搜索的内容
      * @return 返回搜索的数据大小
      */
-    public int getFriendTotalCount(int userId , int status , String searchContent){
+    public int getFriendTotalCount(@Param("userId")int userId ,@Param("status")int status ,@Param("searchContent")String searchContent){
         return friendMapper.getFriendGroupCount(searchContent, userId, status);
     }
 
@@ -113,7 +114,7 @@ public class EveryoneServiceImpl implements EveryoneService {
      * @param pageSize  页面大小
      * @return 返回查询到的用户 集合
      */
-    public List<User> queryFriendGroupByPage(String searchContent , int userId , int status , int currentPage , int pageSize){
+    public List<User> queryFriendGroupByPage(@Param("searchContent")String searchContent ,@Param("userId")int userId ,@Param("status")int status ,@Param("offset")int currentPage ,@Param("limit")int pageSize){
         return friendMapper.queryFriendGroupByPage(searchContent,userId,status, currentPage, pageSize);
     }
 

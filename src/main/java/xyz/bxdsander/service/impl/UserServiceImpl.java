@@ -1,6 +1,7 @@
 package xyz.bxdsander.service.impl;
 
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import xyz.bxdsander.bean.Msg;
 import xyz.bxdsander.bean.User;
@@ -16,8 +17,11 @@ import xyz.bxdsander.util.ValidateUtil;
  * @Version 1.0
  **/
 public class UserServiceImpl implements UserService {
+
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private User user;
 
     /**
      *  用户登录
@@ -26,14 +30,13 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public Msg login(String userName, String password){
-        User user = new User();
         //调用判空方法
         if (ValidateUtil.isInvalidUserName(userName) == true)
             return new Msg("用户名为空",null);
 
         user.setUserName(userName);
         user.setPassWord(password);
-        //调用DAO确认该用户的用户名和密码是否都正确，并确认他的管理权限
+        //确认该用户的用户名和密码是否都正确，并确认他的管理权限
         Msg msg = userMapper.login(user);
         return msg;
     }
@@ -46,7 +49,6 @@ public class UserServiceImpl implements UserService {
      */
     public Msg register(String userName, String password){
         int judge = 0;
-        User user = new User();
         /**
          * 判断用户名和密码是否为空
          */
@@ -90,7 +92,7 @@ public class UserServiceImpl implements UserService {
      * @return true成功，false失败
      */
     public boolean portrait(User user){
-        int judge = 0;
+        int judge;
         judge = userMapper.portrait(user);
         if (judge == 1)
             return true;
@@ -104,12 +106,10 @@ public class UserServiceImpl implements UserService {
      * @return 成功返回用户user对象，失败返回null
      */
     public User UserInfo(String userName){
-        User user = new User();
         user = userMapper.userInfoByUserName(userName);
         if (user != null) {
             return user;
         }else return null;
-
     }
 
     /**
@@ -118,7 +118,6 @@ public class UserServiceImpl implements UserService {
      * @return 成功返回user对象，失败返回null
      */
     public User userInfoByUserId(int userId){
-        User user = new User();
         user = userMapper.userInfoByUserId(userId);
         if (user!= null)
         {
@@ -132,7 +131,6 @@ public class UserServiceImpl implements UserService {
      * @return 成功与否
      */
     public boolean findBackUser(String userName){
-        User user = new User();
         user.setUserName(userName);
 
         if (userMapper.repetition(user) == 1)

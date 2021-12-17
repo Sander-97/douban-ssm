@@ -11,9 +11,11 @@
     </resultMap>
 
 <!--    获取总的user数量-->
-    <select id="getTotalCount" resultMap="friendMap">
-        SELECT * FROM user
+    <select id="getTotalCount" resultMap="java.lang.Integer">
+        SELECT COUNT(1) FROM user
     </select>
+
+
 
 
 

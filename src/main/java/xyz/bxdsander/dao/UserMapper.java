@@ -30,7 +30,7 @@ public interface UserMapper {
      * @return 返回1表示注册成功
      *             0表示注册失败
      */
-    int register(User user);
+     int register(User user);
 
     /**
      *  查看用户名是否重复

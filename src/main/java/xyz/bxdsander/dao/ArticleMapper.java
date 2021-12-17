@@ -1,6 +1,7 @@
 package xyz.bxdsander.dao;
 
 
+import org.apache.ibatis.annotations.Param;
 import xyz.bxdsander.bean.Article;
 
 /**
@@ -52,7 +53,7 @@ public interface ArticleMapper {
      * @param tagId 文章的分类标签id
      * @return 返回操作成功与否
      */
-    boolean middleInsert(int articleId, int tagId);
+    boolean middleInsert(@Param("articleId") int articleId, @Param("tagId") int tagId);
 
     /**
      *  在Article-to-tag的表中删除一条符合articleId的记录

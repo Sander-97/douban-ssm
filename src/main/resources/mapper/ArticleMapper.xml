@@ -55,13 +55,13 @@
     </insert>
 
 <!--    在文章-标签映射记录表中删除一条记录-->
-    <delete id="middleDelete">
+    <delete id="middleDelete" parameterType="java.lang.Integer">
         DELETE FROM article_to_tag
         WHERE article_id = #{articleId}
     </delete>
 
 <!--    删除一篇文章-->
-    <delete id="articleDelete">
+    <delete id="articleDelete" parameterType="java.lang.Integer">
         DELETE FROM a_article
         WHERE article_id = #{articleId}
     </delete>
